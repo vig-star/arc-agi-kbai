@@ -4,11 +4,11 @@
 
 A Python agent that solves visual reasoning puzzles by searching for programs made of grid transformations. It represents grids as structured states, encodes domain knowledge as production rules, and reuses discovered action sequences to predict outputs from a few demonstrations.
 
-The original submission earned **7.5/400 task-normalized points** on the public ARC-AGI evaluation set. This repository preserves that work and includes a maintained, tested implementation. The ranking is from the **course leaderboard**.
+The original submission earned **7.5/400 task-normalized points** on the public ARC-AGI evaluation set. This repository includes the original course submission and a Python package for running the solver.
 
 ## Try it
 
-Requires Python 3.9 or newer. The maintained solver has **no third-party runtime dependencies**, and needs no GPU, API key, or model downloads.
+Requires Python 3.9 or newer. The solver uses the Python standard library.
 
 ```bash
 git clone https://github.com/vig-star/arc-agi-kbai.git
@@ -30,7 +30,7 @@ The demo infers `rotate(90)` from two synthetic examples and applies it to an un
 
 This is a symbolic program-search approach. The 2024 project explored breadth-first, heuristic best-first, and local beam search using [`py_search`](https://github.com/cmaclell/py_search). Its knowledge representations correspond to the course's frames, scripts, production systems, and planning concepts. Sequence reuse happens within each task; there is no persistent case library across tasks.
 
-## Results and evidence
+## Results
 
 | Measure | Preserved 2024 result |
 | --- | --- |
@@ -38,7 +38,7 @@ This is a symbolic program-search approach. The 2024 project explored breadth-fi
 | Task-normalized evaluation score | **7.5 / 400 (1.875%)** |
 | Fully solved tasks | **7 / 400** |
 | Exactly predicted test grids | **9 / 419**, up to two attempts per grid |
-| Evidence | [Manuscript](docs/manuscript.pdf), [poster](docs/poster.png), [saved metrics](archive/2024/metrics.json) |
+| Project materials | [Course manuscript](docs/manuscript.pdf), [poster](docs/poster.png), [saved metrics](archive/2024/metrics.json) |
 
 Scores give each task equal weight: a task with two test grids and one correct prediction contributes 0.5 points. The 7.5 score is independently reproducible from the saved predictions:
 
@@ -48,9 +48,9 @@ python3 -m arc_agi_kbai score \
   data/arc-agi_evaluation_solutions.json
 ```
 
-This re-scores an archived prediction file; it does not rerun the historical solver. The notebook's stored runtime and the manuscript's per-task timings disagree, so this README makes no quantitative speedup claim. See the [technical review](docs/project-review.md) for details.
+This command scores the saved 2024 predictions. The current package uses stricter program validation and explicit search limits, so its predictions differ from the original notebook. It solved five of eight previously scoring tasks in a targeted check; a full 400-task evaluation of the current package has not been run.
 
-## Run the maintained solver
+## Run the solver
 
 Start with five training tasks:
 
@@ -75,31 +75,27 @@ Inference reads only challenge demonstrations and test inputs. Solutions are loa
 
 For an installed command, run `python3 -m pip install .` and use `arc-kbai` in place of `python3 -m arc_agi_kbai`.
 
-## Original work and maintenance
+## Project structure
 
 | Path | Contents |
 | --- | --- |
-| [`arc_agi_kbai/`](arc_agi_kbai/) | Maintained transformations, bounded search, CLI, and scorer |
+| [`arc_agi_kbai/`](arc_agi_kbai/) | Grid transformations, bounded search, CLI, and scorer |
 | [`archive/2024/`](archive/2024/) | Original notebook and predictions, preserved byte-for-byte |
 | [`data/`](data/) | Public ARC-AGI training/evaluation tasks and dataset license |
-| [`docs/`](docs/) | Course manuscript, poster, technical review, and resume assessment |
+| [`docs/`](docs/) | Course manuscript, poster, and example illustration |
 | [`tests/`](tests/) | Transformation, search, CLI, and historical-score regressions |
 
-The **2026 cleanup** fixes the duplicated mirror operation, invalid grids, ineffective visited-state tracking, and acceptance of approximate or inconsistent programs. It separates search failure from a valid identity program and adds explicit resource limits. These changes can change predictions; the maintained solver's output is a separate experiment from the 2024 result.
-
-The maintained solver fully solved five of the eight tasks that had nonzero historical scores in a targeted diagnostic check. It did not retain the other three historical successes. This selected check is not a full benchmark or a performance improvement claim; see [validation details](docs/validation.md).
+## Tests
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
 
-GitHub Actions runs the tests, installed demo, and historical rescoring on Python 3.9 and 3.12. The untouched school handoff, authoring templates, notebook checkpoints, and personal reflection remain locally available and are excluded from Git.
+GitHub Actions runs the tests, installed demo, and historical rescoring on Python 3.9 and 3.12.
 
 ## Limitations
 
 The low absolute score reflects a narrow hand-authored rule vocabulary. Search is bounded and incomplete; even a valid program for each individual example may not yield a shared program. Absolute crop and fill coordinates often transfer poorly. The heuristic does not guarantee an optimal program. Public evaluation results are development evidence, not a hidden-test measurement or a result on newer ARC benchmarks.
-
-The manuscript is a **course report**, not a claim of conference publication. For resume wording and an interview explanation, see the [resume assessment](docs/resume-review.md).
 
 ## Data and attribution
 
