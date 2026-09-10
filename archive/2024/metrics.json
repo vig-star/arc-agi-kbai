@@ -1,0 +1,15 @@
+{
+  "artifact": "submission.json",
+  "split": "ARC-AGI-1 public evaluation",
+  "tasks": 400,
+  "task_normalized_score": 7.5,
+  "task_normalized_percent": 1.875,
+  "fully_solved_tasks": 7,
+  "correct_test_grids": 9,
+  "total_test_grids": 419,
+  "attempts_per_test_grid": 2,
+  "notebook_recorded_runtime_seconds": 206,
+  "runtime_source": "Stored notebook cell 15 tqdm output; not a new timing measurement.",
+  "submission_sha256": "f9b339f1b736fd2b636e05004a0fb638ada067fe5bb00ea8dffe86e79969d8f0",
+  "status": "Historical saved predictions rescored; original solver has not been rerun."
+}

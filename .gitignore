@@ -1,0 +1,24 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.dist/
+outputs/
+tmp/
+.env
+.env.*
+!.env.example
+
+# Original local school handoff: curated copies are published under docs/archive/data.
+/AuthorKit25/
+/student_starter/
+/Final Manuscript.pdf
+/Final Poster.png
+/Reflection and Self-Evaluation.pdf

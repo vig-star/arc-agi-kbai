@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="300" viewBox="0 0 880 300" role="img" aria-labelledby="title desc">
+<title id="title">A discovered program rotates a new grid 90 degrees clockwise</title>
+<desc id="desc">Synthetic demo input is a two-row three-column grid. A rotate 90 program outputs a three-row two-column grid.</desc>
+<rect width="880" height="300" rx="16" fill="#f8fafc"/>
+<text x="440" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" fill="#0f172a">From demonstrations to an executable rule</text>
+<text x="205" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#334155">NEW INPUT</text>
+<rect x="140" y="126" width="42" height="42" rx="3" fill="#ef4444"/>
+<rect x="184" y="126" width="42" height="42" rx="3" fill="#111827"/>
+<rect x="228" y="126" width="42" height="42" rx="3" fill="#2979ff"/>
+<rect x="140" y="170" width="42" height="42" rx="3" fill="#111827"/>
+<rect x="184" y="170" width="42" height="42" rx="3" fill="#22c55e"/>
+<rect x="228" y="170" width="42" height="42" rx="3" fill="#111827"/>
+<text x="675" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#334155">PREDICTION</text>
+<rect x="632" y="104" width="42" height="42" rx="3" fill="#111827"/>
+<rect x="676" y="104" width="42" height="42" rx="3" fill="#ef4444"/>
+<rect x="632" y="148" width="42" height="42" rx="3" fill="#22c55e"/>
+<rect x="676" y="148" width="42" height="42" rx="3" fill="#111827"/>
+<rect x="632" y="192" width="42" height="42" rx="3" fill="#111827"/>
+<rect x="676" y="192" width="42" height="42" rx="3" fill="#2979ff"/>
+<path d="M315 170 H565 M553 162 L565 170 L553 178" stroke="#64748b" stroke-width="3" fill="none"/>
+<rect x="368" y="133" width="144" height="34" rx="8" fill="#e2e8f0"/>
+<text x="440" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" fill="#0f172a">rotate(90)</text>
+<text x="440" y="276" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Synthetic example • inferred from two demonstrations • no model training</text>
+</svg>

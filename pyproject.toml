@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arc-agi-kbai"
+version = "0.1.0"
+description = "A symbolic ARC-AGI solver using production rules and bounded beam search"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name = "Vignesh Sreedhar"}]
+dependencies = []
+
+[project.scripts]
+arc-kbai = "arc_agi_kbai.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["arc_agi_kbai*"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 110
